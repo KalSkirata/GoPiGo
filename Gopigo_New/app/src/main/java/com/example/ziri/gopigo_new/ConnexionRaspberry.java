@@ -48,10 +48,6 @@ public class ConnexionRaspberry extends Activity {
 
                 @Override
                 public void onClick(View arg0) {
-     /*
-      * You have to verify editTextAddress and
-      * editTextPort are input as correct format.
-      */
 
                     MyClientTask myClientTask = new MyClientTask(
                             editTextAddress.getText().toString(),

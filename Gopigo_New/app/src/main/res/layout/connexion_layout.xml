@@ -14,18 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:autoLink="web"
-        android:text="http://android-er.blogspot.com/"
         android:textStyle="bold" />
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dstAddress" />
+        android:hint="IP Address" />
     <EditText
         android:id="@+id/port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dstPort" />
+        android:hint="Port" />
     <Button
         android:id="@+id/connect"
         android:layout_width="match_parent"

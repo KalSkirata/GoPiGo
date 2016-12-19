@@ -19,7 +19,7 @@ public class GopigoActivity extends Activity {
         setContentView(R.layout.activity_gopigo);
 
         start = (Button)findViewById(R.id.start);
-        stop = (Button)findViewById(R.id.stop);
+        //stop = (Button)findViewById(R.id.stop);
         up = (Button)findViewById(R.id.up);
         down = (Button)findViewById(R.id.down);
         right = (Button)findViewById(R.id.up);
@@ -37,10 +37,10 @@ public class GopigoActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         " ROBOT START", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.stop:
+            /*case R.id.stop:
                 Toast.makeText(getApplicationContext(),
                         "ROBOT STOP", Toast.LENGTH_LONG).show();
-                break;
+                break;*/
             case R.id.up:
                 Toast.makeText(getApplicationContext(),
                         "ROBOT GO FORWARD", Toast.LENGTH_LONG).show();
