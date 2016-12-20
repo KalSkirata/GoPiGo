@@ -18,7 +18,7 @@
         <activity android:name=".ConnexionRaspberry"></activity>
         <activity android:name=".GopigoActivity"></activity>
         <!-- <activity android:name=".BddData"></activity> -->
-        <!-- <activity android:name=".DataGraph"></activity> -->
+        <activity android:name=".GraphActivity"></activity>
         <!-- <activity android:name=".SynchroniseBdd"></activity> -->
 
 

@@ -43,12 +43,12 @@ public class Gopigo_menu extends Activity implements View.OnClickListener {
            /* case R.id.local_bdd_data:
                 Intent intent1 = new Intent(Gopigo_menu.this, BddData.class);
                 startActivity(intent1);
-                break;
+                break;*/
             case R.id.graph:
-                Intent intent2 = new Intent(Gopigo_menu.this, DataGraph.class);
+                Intent intent2 = new Intent(Gopigo_menu.this, GraphActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.sync:
+        /*    case R.id.sync:
                 Intent intent3 = new Intent(Gopigo_menu.this, SynchroniseBdd.class);
                 startActivity(intent3);
         */
