@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.content.ContentValues.TAG;
 
-public class Gopigo_menu extends Activity implements View.OnClickListener {
+public class MainMenu extends Activity implements View.OnClickListener {
 
     Button video_stream, local_bdd_data, sync, graph;
 
@@ -35,27 +33,30 @@ public class Gopigo_menu extends Activity implements View.OnClickListener {
 
             case R.id.video_stream:
                 Log.e(TAG,"video stream clicked");
-                Intent intent = new Intent(this, ConnexionRaspberry.class);
+                Intent intent = new Intent(this, RPIConnection.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(),
                         " Activity streaming video ", Toast.LENGTH_LONG).show();
                 break;
-           /* case R.id.local_bdd_data:
-                Intent intent1 = new Intent(Gopigo_menu.this, BddData.class);
+            case R.id.local_bdd_data:
+                Intent intent1 = new Intent(MainMenu.this, BddDataActivity.class);
                 startActivity(intent1);
-                break;*/
+                break;
             case R.id.graph:
-                Intent intent2 = new Intent(Gopigo_menu.this, GraphActivity.class);
+                Intent intent2 = new Intent(MainMenu.this, GraphActivity.class);
                 startActivity(intent2);
                 break;
+            case R.id.rpi:
+                Intent intent3 = new Intent(MainMenu.this, RPIDataActivity.class);
+                startActivity(intent3);
+                break;
         /*    case R.id.sync:
-                Intent intent3 = new Intent(Gopigo_menu.this, SynchroniseBdd.class);
+                Intent intent3 = new Intent(MainMenu.this, SynchroniseBdd.class);
                 startActivity(intent3);
         */
             default :
                 Log.e(TAG,"nothing clicked");
-                Toast.makeText(getApplicationContext(),
-                        " nothing selected ", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext()," nothing selected ", Toast.LENGTH_LONG).show();
         }
     }
 }

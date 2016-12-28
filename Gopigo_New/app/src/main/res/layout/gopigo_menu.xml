@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.ziri.gopigo_new.Gopigo_menu"
+    tools:context="com.example.ziri.gopigo_new.MainMenu"
     android:gravity="center"
     android:textAlignment="center">
 
@@ -55,6 +55,20 @@
         android:layout_centerInParent="true"
         android:text="Local data from BDD"
         android:id="@+id/local_bdd_data"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/buttonshape"
+        android:layout_below="@+id/textView"
+        android:padding="20dp"
+        />
+
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="RPI data"
+        android:id="@+id/rpi"
         android:gravity="center"
         android:onClick="onClick"
         android:textColor="#FFFFFF"

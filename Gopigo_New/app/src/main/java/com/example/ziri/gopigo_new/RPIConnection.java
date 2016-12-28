@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class ConnexionRaspberry extends Activity {
+public class RPIConnection extends Activity {
 
     TextView textResponse;
     EditText editTextAddress, editTextPort;
@@ -54,7 +54,7 @@ public class ConnexionRaspberry extends Activity {
                             Integer.parseInt(editTextPort.getText().toString()));
                     myClientTask.execute();
 
-                    Intent intent = new Intent(ConnexionRaspberry.this, GopigoActivity.class);
+                    Intent intent = new Intent(RPIConnection.this, GopigoActivity.class);
                     startActivity(intent);
                 }};
 
