@@ -90,12 +90,16 @@ public class RPIDataActivity extends Activity {
 
                     // looping through All Products
                     for (int i = 0; i < measures.length(); i++) {
-                        listDataHeader.add(measures.getJSONObject(i).getString(TAG_ID));
+                        //add to the nodes of the list
+                        listDataHeader.add(measures.getJSONObject(i).getString(TAG_MEASURE));
                         ArrayList<String> list_data = new ArrayList<>();
                         list_data.add(measures.getJSONObject(i).getString(TAG_ID));
                         list_data.add(measures.getJSONObject(i).getString(TAG_MEASURE));
                         listDataChild.put(listDataHeader.get(i),list_data);
                     }
+
+                    //save data
+                    DataHolder.getInstance().setList(listDataHeader);
                 } else {
                     // no products found
                     pDialog = new ProgressDialog(RPIDataActivity.this);

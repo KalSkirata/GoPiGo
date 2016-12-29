@@ -65,4 +65,8 @@ public class MeasureBDD {
         cursor.close();
         return true;
     }
+
+    public void cleanTable(){
+        base.onUpgrade(bdd,0,1);
+    }
 }

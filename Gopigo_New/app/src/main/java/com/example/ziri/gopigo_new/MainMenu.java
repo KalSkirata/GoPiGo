@@ -50,10 +50,10 @@ public class MainMenu extends Activity implements View.OnClickListener {
                 Intent intent3 = new Intent(MainMenu.this, RPIDataActivity.class);
                 startActivity(intent3);
                 break;
-        /*    case R.id.sync:
-                Intent intent3 = new Intent(MainMenu.this, SynchroniseBdd.class);
-                startActivity(intent3);
-        */
+            case R.id.sync:
+                new SynchroBDD(this);
+                break;
+
             default :
                 Log.e(TAG,"nothing clicked");
                 //Toast.makeText(getApplicationContext()," nothing selected ", Toast.LENGTH_LONG).show();

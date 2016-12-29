@@ -9,6 +9,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GraphView extends SurfaceView{
 
@@ -17,16 +18,12 @@ public class GraphView extends SurfaceView{
 
     private SurfaceHolder holder;
     private Paint paint = new Paint();
-    private ArrayList<Integer> data = new ArrayList<>();
+    private List<String> data = new ArrayList<>();
 
     public GraphView(Context context) {
         super(context);
         this.setBackgroundColor(Color.WHITE);
-        //TODO données fictives, à remplir avec les données de la BDD
-        data.add(20);
-        data.add(10);
-        data.add(50);
-        data.add(0);
+        data = DataHolder.getInstance().getList();
         holder = getHolder();
         holder.addCallback(new SurfaceHolder.Callback() {
 
@@ -55,7 +52,7 @@ public class GraphView extends SurfaceView{
         Path path = new Path();
         path.moveTo(0, pixel_beginning);
         for (int i=0; i<data.size(); i++){
-            path.lineTo(i*10+10, pixel_beginning-(data.get(i)*height));
+            path.lineTo(i*10+10, pixel_beginning-(Integer.parseInt(data.get(i))*height));
         }
         canvas.drawPath(path, paint);
     }

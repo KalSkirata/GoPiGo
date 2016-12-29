@@ -23,7 +23,7 @@ public class SQLiteBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        /*db.execSQL("DROP TABLE sensor;");
-        onCreate(db);*/
+        db.execSQL("DROP TABLE sensor;");
+        onCreate(db);
     }
 }

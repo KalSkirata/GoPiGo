@@ -24,8 +24,6 @@ public class BddDataActivity extends Activity {
 
         listView = (ExpandableListView) findViewById(R.id.listView);
 
-        addMeasure();
-
         getBddData();
 
         fill_listView(list_measure);
