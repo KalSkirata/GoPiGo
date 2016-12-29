@@ -1,10 +1,12 @@
 package com.example.ziri.gopigo_new;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -23,7 +25,7 @@ public class GraphView extends SurfaceView{
     public GraphView(Context context) {
         super(context);
         this.setBackgroundColor(Color.WHITE);
-        data = DataHolder.getInstance().getList();
+        getBddData();
         holder = getHolder();
         holder.addCallback(new SurfaceHolder.Callback() {
 
@@ -55,5 +57,26 @@ public class GraphView extends SurfaceView{
             path.lineTo(i*10+10, pixel_beginning-(Integer.parseInt(data.get(i))*height));
         }
         canvas.drawPath(path, paint);
+    }
+
+    private void getBddData(){
+        try {
+            MeasureBDD measureBDD = new MeasureBDD(getContext());
+            measureBDD.open();
+
+            Cursor c = measureBDD.getBDD().rawQuery("SELECT * FROM sensor", null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                        data.add(c.getString(c.getColumnIndex("measure")));
+                        Log.e(getClass().getSimpleName(),c.getString(c.getColumnIndex("measure")));
+                    } while (c.moveToNext());
+                }
+                c.close();
+            }
+            measureBDD.close();
+        }catch (Exception se){
+            Log.e(getClass().getSimpleName(), "Could not create or Open the database ("+se.toString()+")");
+        }
     }
 }

@@ -72,15 +72,4 @@ public class BddDataActivity extends Activity {
             Log.e(getClass().getSimpleName(), "Could not create or Open the database ("+se.toString()+")");
         }
     }
-
-    private void addMeasure(){
-        try {
-            MeasureBDD measureBDD = new MeasureBDD(this);
-            measureBDD.open();
-            measureBDD.insertMeasure(new Measure(0, 45));
-            measureBDD.close();
-        }catch(Exception e){
-            Log.e(getClass().getSimpleName(), "Could not add measure");
-        }
-    }
 }
