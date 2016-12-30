@@ -26,7 +26,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
         final int id = view.getId();
         switch (id) {
             case R.id.video_stream:
-                Intent intent = new Intent(this, RPIConnection.class);
+                Intent intent = new Intent(this, GopigoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.local_bdd_data:

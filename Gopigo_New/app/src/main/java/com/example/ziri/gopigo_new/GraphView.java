@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GraphView extends SurfaceView{
 
-    private final int height = 5;
+    private final int height = 2;
     private final int pixel_beginning = 500;
 
     private SurfaceHolder holder;
@@ -28,6 +28,8 @@ public class GraphView extends SurfaceView{
     public GraphView(Context context) {
         super(context);
         this.setBackgroundColor(Color.WHITE);
+
+        autoRefresh();
 
         getBddData();
 
@@ -58,8 +60,12 @@ public class GraphView extends SurfaceView{
         paint.setStyle(Paint.Style.STROKE);
         Path path = new Path();
         path.moveTo(0, pixel_beginning);
+        Log.e(getClass().getSimpleName(),"x=0 y="+pixel_beginning);
         for (int i=0; i<data.size(); i++){
-            path.lineTo(i*10+10, pixel_beginning+(Integer.parseInt(data.get(i))*height));
+            int x=i*10+10;
+            int y=(pixel_beginning-Integer.parseInt(data.get(i))*height);
+            path.lineTo(x,y);
+            Log.e(getClass().getSimpleName(),"x="+x+" y="+y+" data="+Integer.parseInt(data.get(i)));
         }
         canvas.drawPath(path, paint);
     }
@@ -85,14 +91,15 @@ public class GraphView extends SurfaceView{
         }
     }
 
-    /*public void autoRefresh() {
+    public void autoRefresh() {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Log.e(getClass().getSimpleName(),"autoRefresh");
+                new SynchroBDD(getContext());
+                getBddData();
                 Canvas canvas = holder.lockCanvas();
                 if (canvas != null) {
-                    getBddData();
                     canvas.drawColor(Color.WHITE);
                     draw(canvas);
                     holder.unlockCanvasAndPost(canvas);
@@ -100,5 +107,5 @@ public class GraphView extends SurfaceView{
                 autoRefresh();
             }
         }, 5000);
-    }*/
+    }
 }

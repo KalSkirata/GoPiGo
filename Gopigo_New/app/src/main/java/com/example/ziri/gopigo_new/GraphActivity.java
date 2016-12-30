@@ -17,7 +17,7 @@ public class GraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         graphView = new GraphView(this);
         setContentView(graphView);
-        autoRefresh();
+        //autoRefresh();
     }
 
     public void autoRefresh() {
