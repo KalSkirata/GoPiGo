@@ -3,7 +3,7 @@
 import MySQLdb
 
 def connect_db():
-	db = MySQLdb.connect("localhost", "root", "raspberry", "db")
+	db = MySQLdb.connect("localhost", "root", "root", "db")
 	return db
 
 def get_cursor(db):
