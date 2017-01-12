@@ -55,17 +55,16 @@ public class GraphView extends SurfaceView{
     }
 
     public void draw(Canvas canvas) {
+        Log.e(getClass().getSimpleName(),"draw function called");
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(3);
         paint.setStyle(Paint.Style.STROKE);
         Path path = new Path();
         path.moveTo(0, pixel_beginning);
-        Log.e(getClass().getSimpleName(),"x=0 y="+pixel_beginning);
         for (int i=0; i<data.size(); i++){
             int x=i*10+10;
             int y=(pixel_beginning-Integer.parseInt(data.get(i))*height);
             path.lineTo(x,y);
-            Log.e(getClass().getSimpleName(),"x="+x+" y="+y+" data="+Integer.parseInt(data.get(i)));
         }
         canvas.drawPath(path, paint);
     }

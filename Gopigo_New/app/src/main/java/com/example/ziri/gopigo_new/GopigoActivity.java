@@ -1,6 +1,8 @@
 package com.example.ziri.gopigo_new;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,18 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
 import java.net.Socket;
+import java.net.URL;
 import java.net.UnknownHostException;
 
 public class GopigoActivity extends Activity {
 
-    Button up, down, right, left, start, pause;
+    Button up, down, right, left, start, pause, connect;
     Socket socket;
     int stop=0;
     String last_command="";
@@ -35,13 +42,27 @@ public class GopigoActivity extends Activity {
         down = (Button)findViewById(R.id.down);
         right = (Button)findViewById(R.id.right);
         left = (Button)findViewById(R.id.left);
+        connect = (Button)findViewById(R.id.connect);
     }
 
 
     public void onClick(View view){
+        Intent i;
         final int id = view.getId();
         switch (id) {
-            case R.id.start:
+                case R.id.start:
+                i = new Intent();
+                i.setAction(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://192.168.43.88/start.php"));
+                startActivity(i);
+                break;
+            case R.id.stop:
+                i = new Intent();
+                i.setAction(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://192.168.43.88/stop.php"));
+                startActivity(i);
+                break;
+            case R.id.connect:
                 MyClientTask myClientTask = new MyClientTask("192.168.43.88",12345);
                 myClientTask.execute();
                 break;

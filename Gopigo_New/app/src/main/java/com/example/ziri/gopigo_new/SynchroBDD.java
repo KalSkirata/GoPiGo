@@ -81,7 +81,7 @@ public class SynchroBDD {
                     }
                 } else {
                     Log.e(getClass().getSimpleName(),"No measure found");
-                }
+                      }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

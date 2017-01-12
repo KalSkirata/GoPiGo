@@ -58,7 +58,7 @@ public class RPIDataActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(RPIDataActivity.this);
-            pDialog.setMessage("Loading products. Please wait...");
+            pDialog.setMessage("Loading data. Please wait...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
