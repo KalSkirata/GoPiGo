@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class GopigoActivity extends Activity {
     Socket socket;
     int stop=0;
     String last_command="";
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,23 @@ public class GopigoActivity extends Activity {
         right = (Button)findViewById(R.id.right);
         left = (Button)findViewById(R.id.left);
         connect = (Button)findViewById(R.id.connect);
+
+        webView = (WebView)findViewById(R.id.webview);
+
+        String html = "<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<head>\n" +
+                "\t<title></title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<img src=\"http://192.168.43.88:8081/\">\n" +
+                "</body>\n" +
+                "</html>";
+        String mime = "text/html";
+        String encoding = "utf-8";
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadDataWithBaseURL(null, html, mime, encoding, null);
     }
 
 
